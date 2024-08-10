@@ -63,17 +63,17 @@
 <section class="bg-primary txt-white sec-counter">
     <div class="container">
         <div class="col-xs-12 text-center">
-            <h2 class="section-heading">What numbers says?</h2>
+            <h2 class="section-heading">Our Impact in Numbers</h2>
             <ul class="list-inline list-disc">
                 <li title="Data as per 24-Jan-2024"><span class="numbers">824+</span>
-                    Billing Operators</li>
-                <li title="Data as per 24-Jan-2024"><span class="numbers">120+</span>
-                    Retailers
+                    Satisfied Customers</li>
+                <li title="Data as per 24-Jan-2024"><span class="numbers">640+</span>
+                    Devices Repaired
                     </li>
-                <li title="Data as per 24-Jan-2024"><span class="numbers">174753</span>
-                    Bills Paid</li>
-                <li title="Data as per 24-Jan-2024"><span class="numbers">23</span>
-                    Billing amount (In Cr.)
+                <li title="Data as per 24-Jan-2024"><span class="numbers">{!! ((int)date('Y') - 2014) !!}</span>
+                    Years of Expertise</li>
+                <li title="Data as per 24-Jan-2024"><span class="numbers">2300</span>
+                    Service Requests Completed
                 </li>
             </ul>
         </div>
