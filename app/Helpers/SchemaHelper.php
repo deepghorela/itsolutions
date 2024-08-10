@@ -184,8 +184,8 @@ function getRatingSchema(){
   return array(
     "@type" => "AggregateRating",
     "@context" => "https://schema.org",
-    "reviewCount" => 4,
-    "ratingValue" => 5,
+    "reviewCount" => 317,
+    "ratingValue" => 4.4,
   );
 }
 
