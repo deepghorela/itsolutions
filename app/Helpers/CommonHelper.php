@@ -342,3 +342,40 @@ function generateBreadcrumb() {
 
     return $breadcrumbHtml;
 }
+
+
+function getRatingStars($rating) {
+    // Define the number of stars to show
+    $totalStars = 5;
+    $fullStar = '<li class="star"><i class="glyphicon glyphicon-star"></i></li>';
+    $halfStar = '<li class="star"><i class="glyphicon glyphicon-star-empty"></i></li>';
+    $blankStar = '<li class="star"><i class="glyphicon glyphicon-star-empty"></i></li>';
+
+    // Initialize the HTML output
+    $html = '<ul class="list-inline rating-stars">';
+
+    // Calculate the number of full stars, half stars, and blank stars
+    $fullStarsCount = floor($rating);
+    $hasHalfStar = ($rating - $fullStarsCount) >= 0.5 ? 1 : 0;
+    $blankStarsCount = $totalStars - ($fullStarsCount + $hasHalfStar);
+
+    // Generate the full stars
+    for ($i = 0; $i < $fullStarsCount; $i++) {
+        $html .= $fullStar;
+    }
+
+    // Generate the half star if needed
+    if ($hasHalfStar) {
+        $html .= $halfStar;
+    }
+
+    // Generate the blank stars
+    for ($i = 0; $i < $blankStarsCount; $i++) {
+        $html .= $blankStar;
+    }
+
+    // Close the HTML output
+    $html .= '</ul>';
+
+    return $html;
+}

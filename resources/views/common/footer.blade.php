@@ -41,14 +41,14 @@
         </div>
         <div class="col-xs-12 col-md-3">
             <h3 class="footer-widget__title">Navigate to Us </h3>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d112266.56297050988!2d76.93768308549915!3d28.43946418689925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1931270f0f45%3A0xa25571ac55b38504!2sLaptop%20Repair%20Near%20Me%20-%20Softech%20Technology!5e0!3m2!1sen!2sin!4v1723302329098!5m2!1sen!2sin" width="300" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="{!! env('GOOGLE_MAP_IFRAME_LINK') !!}" width="300" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </div>
 </div>
 <div class="container copyright-section">
     <div class="clearfix"></div>
     <div class="row">
-        <div class="col-xs-12 col-sm-4 text-left">{{ env('APP_NAME') }} &copy; {!! date("Y") == 2021 ? "2021" : "2021-".date("y") !!}. All rights reserved.</div>
+        <div class="col-xs-12 col-sm-4 text-left">{{ env('APP_NAME') }} &copy; {!! date("Y") == 2014 ? "2014" : "2014-".date("y") !!}. All rights reserved.</div>
         <div class="col-xs-12 col-sm-4 text-center">
             <ul class="list-inline list-unstyled footer-social">
                 @if(!empty(setting('site.linkedin')))

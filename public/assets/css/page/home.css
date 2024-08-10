@@ -1,12 +1,24 @@
 .topHeader{
     padding:0px;
     margin-top: 0;
-    background-image: url('../../images/background-hero.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 90vh;
     position: relative;
+    transition: background 1s ease-in-out;
+}
+.topHeader.bg1{
+    background-image: url('../../images/bg/1.jpg');
+}
+.topHeader.bg2{
+    background-image: url('../../images/bg/2.jpg');
+}
+.topHeader.bg3{
+    background-image: url('../../images/bg/3.jpg');
+}
+.topHeader.bg4{
+    background-image: url('../../images/bg/server.jpg');
 }
 .topHeader > .container{
     position: absolute;
@@ -25,7 +37,7 @@
 }
 
 .topHeader .bgBlur{
-    background: rgba(0, 0, 0, 0.68) !important;
+    background: rgba(0, 0, 0, 0.78) !important;
     width: 100%;
     height: 90vh;
 }
@@ -239,4 +251,35 @@
 }
 .carousel-indicators li.active{
     background-color: #2c305a;
+}
+.rating-stars {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+.d-inline{
+    display: inline-block;
+}
+.star i {
+    color: gold; /* Change color to your preference */
+    font-size: 20px; /* Adjust size as needed */
+}
+.star .glyphicon-star-empty {
+    color: lightgray; /* Color for blank stars */
+}
+.rating-count{
+    position: absolute;
+    top: -3px;
+    font-size: 16px;
+    font-weight: 600;
+    padding-left: 10px;
+}
+.btn-primary {
+    background-color: #2c305a;
+    border-color: #2c305a;
+}
+.btn-primary:hover {
+    background-color: #393e75;
+    border-color: #393e75;
 }

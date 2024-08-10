@@ -1,4 +1,4 @@
-<section class="topHeader">
+<section class="topHeader bg1">
     <div class="bgBlur"></div>
     <div class="container">
 		<div class="row">
@@ -154,8 +154,24 @@
 </section>
 <section class="collaborations bg-light testimonial-section">
     <div class="container">
-        <div class="col-xs-12 col-md-offset-2 col-md-8 text-center">
+        <div class="col-xs-12 text-center">
             <h2 class="section-heading">What Client says?</h2>
+        </div>
+        <div class="col-xs-12 col-md-4">
+            <h3>Ratings</h3>
+            <div class="row">
+                <div class="col-xs-12 d-inline">
+                    {!! getRatingStars('4.4') !!} 
+                    <span class="rating-count d-inline text-number">4.4 / 5</span>
+                </div>
+                <div class="col-xs-12">
+                    <p><small>( Total <strong class="text-number">317</strong>  reviews )</small></p>
+                    <a target="_blank" class="btn btn-primary" href="https://search.google.com/local/reviews?placeid={!! env('GOOGLE_PLACE_ID') !!}">View all reviews</a>
+                    <a target="_blank" class="btn btn-primary" href="https://search.google.com/local/writereview?placeid={!! env('GOOGLE_PLACE_ID') !!}">Write a Review</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8 text-center">
             <div id="testimonial-carousel" class="carousel slide" data-ride="carousel"  data-interval="3000">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">

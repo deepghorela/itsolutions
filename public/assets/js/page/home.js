@@ -10,7 +10,29 @@ var options = {
 
 // Apply the typing effect to the element with class 'myText'
 var typed = new Typed('.typeJsEffect', options);
+document.addEventListener('DOMContentLoaded', function() {
+    // Array of classes to cycle through
+    const classes = ['bg1', 'bg2', 'bg3', 'bg4'];
+    let currentIndex = 0;
 
+    // Function to change the class
+    function changeClass() {
+        // Get the topHeader element
+        const topHeader = document.querySelector('.topHeader');
+        
+        // Remove the current class
+        topHeader.classList.remove(classes[currentIndex]);
+        
+        // Update the index to the next class
+        currentIndex = (currentIndex + 1) % classes.length;
+        
+        // Add the new class
+        topHeader.classList.add(classes[currentIndex]);
+    }
+
+    // Set an interval to change the class every 3 seconds
+    setInterval(changeClass, 3000);
+});
 
 // var _spinner = new Loader();
 $("document").ready(function(){
