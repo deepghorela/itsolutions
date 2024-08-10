@@ -57,6 +57,7 @@ LimitRequestBody 10000
 </FilesMatch>
 
 <IfModule mod_headers.c>
+    Header set Content-Security-Policy default-src 'self' 'unsafe-inline' http://*.softech.live https:; img-src 'self' data: http://*.softech.live http://*.google-analytics.com https: *.gstatic.com *.google-analytics.com *.googleapis.com; object-src 'self' http://*.softech.live https:; script-src 'unsafe-eval' 'self' *.googleadservices.com *.google.com http://*.softech.live *.google-analytics.com 'unsafe-inline' *.googleapis.com *.gstatic.com https: 'unsafe-eval';style-src 'unsafe-inline' 'self' http://*.softech.live https: *.googleapis.com *.gstatic.com; font-src http://*.softech.live 'self' https: *.googleapis.com *.gstatic.com;
     Header always append X-Frame-Options "ALLOW-FROM https://www.google.com/"
     Header set X-Content-Type-Options "nosniff"
     Header set Cross-Origin-Embedder-Policy "unsafe-none"
@@ -66,8 +67,6 @@ LimitRequestBody 10000
     Header always edit Set-Cookie (.*) "$1; HTTPOnly, Secure"
     Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
     Header set Referrer-Policy "no-referrer-when-downgrade"
-    Header set Content-Security-Policy default-src 'self' 'unsafe-inline' http://*.softech.live https:; img-src 'self' data: http://*.softech.live http://*.google-analytics.com https: *.gstatic.com *.google-analytics.com *.googleapis.com; object-src 'self' http://*.softech.live https:; script-src 'unsafe-eval' 'self' *.googleadservices.com *.google.com http://*.softech.live *.google-analytics.com 'unsafe-inline' *.googleapis.com *.gstatic.com https: 'unsafe-eval';style-src 'unsafe-inline' 'self' http://*.softech.live https: *.googleapis.com *.gstatic.com; font-src http://*.softech.live 'self' https: *.googleapis.com *.gstatic.com;
-    Header always set Access-Control-Allow-Origin "https://softech.live"
 </IfModule>
 
 <IfModule mod_deflate.c>
