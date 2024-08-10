@@ -57,8 +57,8 @@ LimitRequestBody 10000
 </FilesMatch>
 
 <IfModule mod_headers.c>
-	Header always append X-Frame-Options "ALLOW-FROM https://www.google.com/*"
-    Header set X-Content-Type-Options nosniff
+    Header always append X-Frame-Options "ALLOW-FROM https://www.google.com/"
+    Header set X-Content-Type-Options "nosniff"
     Header set Cross-Origin-Embedder-Policy "unsafe-none"
     Header set Cross-Origin-Opener-Policy "same-origin"
     Header set Cross-Origin-Resource-Policy "cross-origin"
@@ -66,7 +66,7 @@ LimitRequestBody 10000
     Header always edit Set-Cookie (.*) "$1; HTTPOnly, Secure"
     Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
     Header set Referrer-Policy "no-referrer-when-downgrade"
-    Header set Content-Security-Policy: default-src 'self' 'unsafe-inline' wss: *.softech.live http://*.mapmyindia.com https:; img-src 'self' data: *.webengage.com *.softech.live http://*.google-analytics.com https: *.gstatic.com *.google-analytics.com *.ytimg.com *.googleapis.com; object-src 'self' *.softech.live https:; script-src 'unsafe-eval' 'self' *.google.com *.webengage.com *.softech.live *.googleadservices.com *.facebook.net *.widgets.webengage.com blob: *.google-analytics.com assets.adobedtm.com fbexternal-a.akamaihd.net http://*.mapmyindia.com 'unsafe-inline' *.googleapis.com *.gstatic.com https:;style-src 'unsafe-inline' 'self' *.softech.live maxcdn.bootstrapcdn.com https: *.googleapis.com *.gstatic.com; font-src *.softech.live https: *.softech.live; connect-src 'self' data: http://*.softech.live https: wss:; upgrade-insecure-requests;
+    Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
     Header always set Access-Control-Allow-Origin "https://softech.live"
 </IfModule>
 
