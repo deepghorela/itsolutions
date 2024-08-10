@@ -196,7 +196,7 @@
 </section>
 
 @push('post_js')
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.js" integrity="sha512-tQQXRDB2wEmuJGtFrmmoFYzNTq8StA1XJrfO0OQbbTxd9G0CwaTDL6/C1y805IlvBVrMwOqob1kf6r/2U5XXVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="{!! asset('assets/js/typed.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
 <script async src="{!! asset('assets/js/jquery.validate.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
 <script async src="{!! asset('assets/js/additional-methods.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
 <script async src="{!! asset('assets/js/jquery.form.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
