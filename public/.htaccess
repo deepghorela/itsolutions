@@ -63,12 +63,10 @@ LimitRequestBody 10000
     Header set Cross-Origin-Opener-Policy "same-origin"
     Header set Cross-Origin-Resource-Policy "cross-origin"
     Header set x-permitted-cross-domain-policies "none"
-    Header always set Content-Security-Policy "upgrade-insecure-requests;"
-    Header always edit Set-Cookie (.*) "$1; HTTPOnly"
-    Header always edit Set-Cookie (.*) "$1; Secure"
+    Header always edit Set-Cookie (.*) "$1; HTTPOnly, Secure"
     Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
     Header set Referrer-Policy "no-referrer-when-downgrade"
-    Header set Content-Security-Policy: default-src 'self' 'unsafe-inline' wss: *.softech.live http://*.mapmyindia.com https:; img-src 'self' data: *.webengage.com *.softech.live http://*.google-analytics.com https: *.gstatic.com *.google-analytics.com *.ytimg.com *.googleapis.com; object-src 'self' *.softech.live https:; script-src 'unsafe-eval' 'self' *.google.com *.webengage.com *.softech.live *.googleadservices.com *.facebook.net *.widgets.webengage.com blob: *.google-analytics.com assets.adobedtm.com fbexternal-a.akamaihd.net http://*.mapmyindia.com 'unsafe-inline' *.googleapis.com *.gstatic.com https:;style-src 'unsafe-inline' 'self' *.softech.live maxcdn.bootstrapcdn.com https: *.googleapis.com *.gstatic.com; font-src *.softech.live https: *.softech.live; connect-src 'self' data: http://*.softech.live https: wss:;
+    Header set Content-Security-Policy: default-src 'self' 'unsafe-inline' wss: *.softech.live http://*.mapmyindia.com https:; img-src 'self' data: *.webengage.com *.softech.live http://*.google-analytics.com https: *.gstatic.com *.google-analytics.com *.ytimg.com *.googleapis.com; object-src 'self' *.softech.live https:; script-src 'unsafe-eval' 'self' *.google.com *.webengage.com *.softech.live *.googleadservices.com *.facebook.net *.widgets.webengage.com blob: *.google-analytics.com assets.adobedtm.com fbexternal-a.akamaihd.net http://*.mapmyindia.com 'unsafe-inline' *.googleapis.com *.gstatic.com https:;style-src 'unsafe-inline' 'self' *.softech.live maxcdn.bootstrapcdn.com https: *.googleapis.com *.gstatic.com; font-src *.softech.live https: *.softech.live; connect-src 'self' data: http://*.softech.live https: wss:; upgrade-insecure-requests;
     Header always set Access-Control-Allow-Origin "https://softech.live"
 </IfModule>
 
