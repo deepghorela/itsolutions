@@ -129,7 +129,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="form-group">
-                                <textarea name="message" class="form-control" rows="8" resize=none required minlength="10" placeholder="Describe your request/message" maxlength="250">this is a test message. Please ignore.</textarea>
+                                <textarea name="message" class="form-control" rows="8" resize=none required minlength="10" placeholder="Describe your request/message" maxlength="250"></textarea>
                             </div>
                         </div>
                     </div>
