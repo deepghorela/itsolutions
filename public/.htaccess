@@ -66,7 +66,7 @@ LimitRequestBody 10000
     Header always edit Set-Cookie (.*) "$1; HTTPOnly, Secure"
     Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
     Header set Referrer-Policy "no-referrer-when-downgrade"
-    Header set Content-Security-Policy "default-src 'self'; img-src 'self' data:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline';"
+    Header set Content-Security-Policy default-src 'self' *.demdex.net assets.adobedtm.com 'unsafe-inline' http://*.softech.live https:; img-src 'self' *.omtrdc.net data: http://*.softech.live http://*.google-analytics.com https: *.gstatic.com *.ytimg.com *.google-analytics.com *.googleapis.com; object-src 'self' http://*.softech.live https:; script-src 'unsafe-eval' 'self' http://*.tt.omtrdc.net http://assets.adobedtm.com http://*.demdex.net *.googleadservices.com *.google.com http://*.softech.live *.google-analytics.com assets.adobedtm.com fbexternal-a.akamaihd.net 'unsafe-inline' *.googleapis.com *.gstatic.com https: 'unsafe-eval' assets.adobedtm.com;style-src 'unsafe-inline' 'self' http://*.softech.live maxcdn.bootstrapcdn.com https: *.googleapis.com *.gstatic.com; font-src http://*.softech.live 'self' maxcdn.bootstrapcdn.com https: *.googleapis.com *.gstatic.com
     Header always set Access-Control-Allow-Origin "https://softech.live"
 </IfModule>
 
