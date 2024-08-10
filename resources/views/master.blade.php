@@ -10,9 +10,9 @@
     <meta name="description" content="@yield('meta_description', env('META_DESCRIPTION'))">
     <meta name="keywords" content="@yield('meta_keywords', env('META_KEYWORDS'))">
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/common.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/common.css') }}?v={{ env('CSS_VERSION') }}">
     @if(pageSpecificMediaExists($slug, 'css'))
-    <link rel="stylesheet" href="{!! pageSpecificMediaExists($slug, 'css') !!}">
+    <link rel="stylesheet" href="{!! pageSpecificMediaExists($slug, 'css') !!}?v={{ env('CSS_VERSION') }}">
     @endif
     <link rel="icon" href="{!! asset('favicon.ico') !!}" type="image/x-icon">
     <meta property="og:image" content="@yield('meta_image', getLightLogoUrl())">
