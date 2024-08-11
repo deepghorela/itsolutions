@@ -33,6 +33,7 @@ class IpRangeService
 
         // Fetch and parse the IP ranges
         $ranges = $this->getGoogleIpRanges();
+        $ranges[] = "66.249.82.0/28";
 
         // Check if the IP is within any of the ranges
         foreach ($ranges as $range) {
