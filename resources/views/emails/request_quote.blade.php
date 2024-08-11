@@ -9,6 +9,6 @@
         <p><strong>Address:</strong> {{ $quote->address }}</p>
     @endif
 
-    <p>Thanks,</p>
-    <p>Team {{ config('app.name') }}</p>
+    Thanks,
+    Team {{ config('app.name') }}
 @endcomponent
