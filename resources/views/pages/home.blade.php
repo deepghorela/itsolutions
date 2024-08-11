@@ -213,10 +213,10 @@
 </section>
 
 @push('post_js')
-<script async src="{!! asset('assets/js/typed.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
-<script async src="{!! asset('assets/js/jquery.validate.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
-<script async src="{!! asset('assets/js/additional-methods.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
-<script async src="{!! asset('assets/js/jquery.form.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
+<script async src="{!! getAssetPath('assets/js/typed.min.js') !!}"></script>
+<script async src="{!! getAssetPath('assets/js/jquery.validate.min.js') !!}"></script>
+<script async src="{!! getAssetPath('assets/js/additional-methods.min.js') !!}"></script>
+<script async src="{!! getAssetPath('assets/js/jquery.form.min.js') !!}"></script>
 @endpush
 
 @push('head_end')

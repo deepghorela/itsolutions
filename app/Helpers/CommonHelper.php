@@ -75,7 +75,7 @@ function pageSpecificMediaExists($page, $mediaType = 'css')
 {
     // Define the base path and URL
     $basePath = public_path("assets/{$mediaType}/page/{$page}.{$mediaType}");
-    $baseUrl = asset("assets/{$mediaType}/page/{$page}.{$mediaType}");
+    $baseUrl = getAssetPath("assets/{$mediaType}/page/{$page}.{$mediaType}");
 
     // Check if the file exists
     if (file_exists($basePath)) {
@@ -378,4 +378,43 @@ function getRatingStars($rating) {
     $html .= '</ul>';
 
     return $html;
+}
+
+
+
+/**
+ * Get Asset File Path
+ *
+ * @param string $cssPath
+ * @return string
+ */
+function getAssetPath($cssPath)
+{
+    $toReturn = minifiedAsset($cssPath) . "?v=" . (env('APP_ENV') == 'production' ? env('MEDIA_VERSION') : time());
+    return $toReturn;
+}
+
+function minifiedAsset($path)
+{
+
+    // Get the file extension
+    $extension = pathinfo($path, PATHINFO_EXTENSION);
+
+    // Form the paths for the original and minified files
+    $originalPath = public_path($path);
+    $minifiedPath = public_path(str_replace(".{$extension}", ".min.{$extension}", $path));
+
+    // Determine the final URL based on the environment and file availability
+    $finalUrl = isProduction() && file_exists($minifiedPath) ? asset(str_replace(".{$extension}", ".min.{$extension}", $path)) : asset($path);
+
+    return $finalUrl;
+}
+
+/**
+ * Check if current env is production or not
+ *
+ * @return boolean
+ */
+function isProduction(){
+    return env('APP_ENV') == 'production';
 }
