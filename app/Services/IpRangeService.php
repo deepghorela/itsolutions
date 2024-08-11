@@ -2,56 +2,111 @@
 
 namespace App\Services;
 
+use InvalidArgumentException;
+use Spatie\IpTools\IpRange;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 class IpRangeService
 {
-    protected $cacheKey = 'google_ip_ranges';
-    protected $cacheDuration = 1440; // 24 hours in minutes
+    /**
+     * The URL to fetch the IP range data from.
+     */
+    private const IP_RANGES_URL = 'https://www.gstatic.com/ipranges/goog.json';
 
     /**
-     * Get the IP ranges from the cache or fetch from the source.
-     *
-     * @return array
+     * Cache duration in minutes.
      */
-    public function getIpRanges()
+    private const CACHE_DURATION = 1440; // 24 hours
+
+    /**
+     * Checks if an IP address is within any of the Google IP ranges.
+     *
+     * @param string $ip The IP address to check.
+     * @return bool True if the IP is within any range, otherwise false.
+     */
+    public function isIpInGoogleRange($ip)
     {
-        // Check if the IP ranges are already cached
-        if (Cache::has($this->cacheKey)) {
-            return Cache::get($this->cacheKey);
+        if (!filter_var($ip, FILTER_VALIDATE_IP)) {
+            throw new InvalidArgumentException('Invalid IP address provided.');
         }
 
-        // Fetch IP ranges from the remote source
-        $response = Http::get('https://www.gstatic.com/ipranges/goog.json');
-        $data = $response->json();
+        // Fetch and parse the IP ranges
+        $ranges = $this->getGoogleIpRanges();
+        dd($ranges);
 
-        // Convert and cache the IP ranges
-        $ipRanges = $this->convertPrefixes($data['prefixes'] ?? []);
-        Cache::put($this->cacheKey, $ipRanges, $this->cacheDuration);
-
-        return $ipRanges;
-    }
-
-    /**
-     * Convert IP prefixes to a simple array of IP ranges.
-     *
-     * @param array $prefixes
-     * @return array
-     */
-    protected function convertPrefixes(array $prefixes)
-    {
-        $ranges = [];
-
-        foreach ($prefixes as $prefix) {
-            // Check for both IPv4 and IPv6 prefixes
-            if (isset($prefix['ipv4Prefix'])) {
-                $ranges[] = $prefix['ipv4Prefix'];
-            } elseif (isset($prefix['ipv6Prefix'])) {
-                $ranges[] = $prefix['ipv6Prefix'];
+        // Check if the IP is within any of the ranges
+        foreach ($ranges as $range) {
+            if ($this->ipInRange($ip, $range)) {
+                return true;
             }
         }
 
-        return $ranges;
+        return false;
+    }
+
+    /**
+     * Fetches and caches Google IP ranges.
+     *
+     * @return array The IP ranges in CIDR notation.
+     */
+    private function getGoogleIpRanges()
+    {
+        return Cache::remember('google_ip_ranges', self::CACHE_DURATION, function () {
+            $response = Http::get(self::IP_RANGES_URL);
+
+            if ($response->failed()) {
+                throw new \Exception('Failed to fetch IP ranges from Google.');
+            }
+
+            $data = $response->json();
+            $ranges = [];
+
+            // Extract IPv4 and IPv6 prefixes from the JSON data
+            foreach (array_merge($data['prefixes'] ?? [], $data['ipv6Prefixes'] ?? []) as $prefix) {
+                $ranges[] = $prefix['ipv4Prefix'] ?? $prefix['ipv6Prefix'];
+            }
+
+            return $ranges;
+        });
+    }
+
+    /**
+     * Checks if an IP address is within a specific CIDR range.
+     *
+     * @param string $ip The IP address to check.
+     * @param string $cidr The CIDR notation for the range.
+     * @return bool True if the IP is within the range, otherwise false.
+     */
+    protected function ipInRange($ip, $cidr) {
+        if (strpos($cidr, ':') !== false) {
+            // Handle IPv6
+            return $this->ipv6InRange($ip, $cidr);
+        } else {
+            return $this->ipv4InRange($ip, $cidr);
+        }
+    }
+
+    protected function ipv6InRange($ip, $cidr) {
+        list($subnet, $mask) = explode('/', $cidr);
+        $subnet = inet_pton($subnet);
+        $ip = inet_pton($ip);
+    
+        $mask = str_repeat('f', $mask / 4) . str_repeat('0', 32 - ($mask / 4));
+        $mask = pack('H*', $mask);
+    
+        return (strncmp($ip & $mask, $subnet & $mask, strlen($mask)) === 0);
+    }
+
+
+    protected function ipv4InRange($ip, $cidr) {
+        list($subnet, $mask) = explode('/', $cidr);
+        $subnet = ip2long($subnet);
+        $mask = intval($mask);
+
+        $ip = ip2long($ip);
+        $mask = -1 << (32 - $mask);
+
+        return (($ip & $mask) == ($subnet & $mask));
     }
 }

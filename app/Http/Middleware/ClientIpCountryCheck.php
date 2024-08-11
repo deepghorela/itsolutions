@@ -29,21 +29,16 @@ class ClientIpCountryCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(env('APP_ENV') != 'production'){
+            return $next($request);
+        }
 
         // Get the client's IP address
         $clientIp = $request->ip();
 
         // Fetch IP ranges from the service
-        $ipRanges = $this->ipRangeService->getIpRanges();
-
-        // Check if the IP is within any of the Google IP ranges
-        $isGoogleIp = false;
-        foreach ($ipRanges as $range) {
-            if ($this->ipInRange($clientIp, $range)) {
-                $isGoogleIp = true;
-                break;
-            }
-        }
+        $objIpRangeService = new IpRangeService;
+        $isGoogleIp = $objIpRangeService->isIpInGoogleRange($clientIp);
 
         if (!$isGoogleIp) {
             $position = GeoIP::getLocation();
@@ -106,26 +101,5 @@ class ClientIpCountryCheck
             }
         }
         return $next($request);
-    }
-
-
-    /**
-     * Check if an IP is within a specific CIDR range.
-     *
-     * @param string $ip
-     * @param string $range
-     * @return bool
-     */
-    protected function ipInRange($ip, $range)
-    {
-        list($subnet, $bits) = explode('/', $range);
-
-        $ip = ip2long($ip);
-        $subnet = ip2long($subnet);
-        $mask = -1 << (32 - $bits);
-
-        $subnet &= $mask;
-
-        return ($ip & $mask) == $subnet;
     }
 }
