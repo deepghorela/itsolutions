@@ -217,3 +217,10 @@
 <script async src="{!! asset('assets/js/additional-methods.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
 <script async src="{!! asset('assets/js/jquery.form.min.js') !!}?v={{ env('JS_VERSION') }}"></script>
 @endpush
+
+@push('head_end')
+<link rel="preload" href="{!! asset('assets/images/bg/1.jpg') !!}" as="image" />
+<link rel="preload" href="{!! asset('assets/images/bg/2.jpg') !!}" as="image" />
+<link rel="preload" href="{!! asset('assets/images/bg/3.jpg') !!}" as="image" />
+<link rel="preload" href="{!! asset('assets/images/bg/server.jpg') !!}" as="image" />
+@endpush
