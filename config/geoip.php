@@ -36,7 +36,7 @@ return [
     |
     */
 
-    'service' => null,
+    'service' => env('ACTIVE_GEO_LOCATION_SERVICE', null),
 
     /*
     |--------------------------------------------------------------------------
