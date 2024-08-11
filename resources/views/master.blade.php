@@ -16,6 +16,9 @@
     <link href="//fonts.googleapis.com" rel="dns-prefetch" >
     <link href="//maps.googleapis.com" rel="dns-prefetch" >
     <link href="//maps.gstatic.com" rel="dns-prefetch" >
+    <link href="//www.gstatic.com" rel="dns-prefetch" >
+    <link href="//fonts.gstatic.com" rel="dns-prefetch" >
+    <link href="//www.google.com" rel="dns-prefetch" >
     <link rel="stylesheet" href="{{ getAssetPath('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ getAssetPath('assets/css/common.css') }}">
     @if(pageSpecificMediaExists($slug, 'css'))
