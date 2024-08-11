@@ -5,48 +5,53 @@ namespace App\Services;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
-/**
- * Whitelist Google Ips
- * 
- */
 class IpRangeService
 {
     protected $cacheKey = 'google_ip_ranges';
-    protected $cacheDuration = 24 * 60; // 24 hours in minutes
+    protected $cacheDuration = 1440; // 24 hours in minutes
 
     /**
-     * Fetch and cache Google IP ranges.
+     * Get the IP ranges from the cache or fetch from the source.
      *
      * @return array
      */
     public function getIpRanges()
     {
-        return Cache::remember($this->cacheKey, $this->cacheDuration, function () {
-            $response = Http::get('https://www.gstatic.com/ipranges/goog.json');
-            
-            if ($response->ok()) {
-                $data = $response->json();
-                return array_merge(
-                    $this->convertPrefixes($data['prefixes'] ?? [], 'ipv4Prefix'),
-                    $this->convertPrefixes($data['ipv6Prefixes'] ?? [], 'ipv6Prefix')
-                );
-            }
+        // Check if the IP ranges are already cached
+        if (Cache::has($this->cacheKey)) {
+            return Cache::get($this->cacheKey);
+        }
 
-            return [];
-        });
+        // Fetch IP ranges from the remote source
+        $response = Http::get('https://www.gstatic.com/ipranges/goog.json');
+        $data = $response->json();
+
+        // Convert and cache the IP ranges
+        $ipRanges = $this->convertPrefixes($data['prefixes'] ?? []);
+        Cache::put($this->cacheKey, $ipRanges, $this->cacheDuration);
+
+        return $ipRanges;
     }
 
     /**
-     * Convert prefixes to a flat array of IP ranges.
+     * Convert IP prefixes to a simple array of IP ranges.
      *
      * @param array $prefixes
-     * @param string $key
      * @return array
      */
-    protected function convertPrefixes(array $prefixes, $key)
+    protected function convertPrefixes(array $prefixes)
     {
-        return array_map(function ($prefix) use ($key) {
-            return $prefix[$key];
-        }, $prefixes);
+        $ranges = [];
+
+        foreach ($prefixes as $prefix) {
+            // Check for both IPv4 and IPv6 prefixes
+            if (isset($prefix['ipv4Prefix'])) {
+                $ranges[] = $prefix['ipv4Prefix'];
+            } elseif (isset($prefix['ipv6Prefix'])) {
+                $ranges[] = $prefix['ipv6Prefix'];
+            }
+        }
+
+        return $ranges;
     }
 }
