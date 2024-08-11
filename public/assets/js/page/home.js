@@ -63,6 +63,11 @@ $("document").ready(function(){
     function showRequest(formData, jqForm, options) {
         $(".error").remove();
         $('.requestAQuoteForm button').prop("disabled", "disabled");
+
+        // Get the value of the Google reCAPTCHA response
+        var recaptchaResponse = grecaptcha.getResponse();
+        // Append the g-recaptcha-response key and value to the form data
+        arr.push({ name: 'g-recaptcha-response', value: recaptchaResponse });
     }
     function showResponse(responseText, statusText, xhr, $form) {
         if (responseText.status) {
