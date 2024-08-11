@@ -65,7 +65,7 @@ $("document").ready(function(){
         $('.requestAQuoteForm button').prop("disabled", "disabled");
 
         // Get the value of the Google reCAPTCHA response
-        var recaptchaResponse = grecaptcha.getResponse();
+        var recaptchaResponse = document.getElementById("g-recaptcha-response").value;
         // Append the g-recaptcha-response key and value to the form data
         arr.push({ name: 'g-recaptcha-response', value: recaptchaResponse });
     }
