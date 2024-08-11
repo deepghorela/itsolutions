@@ -29,8 +29,8 @@ class RequestQuoteController extends Controller
             $validated['address'] = strip_tags($validated['address']);
             $validated['message'] = strip_tags($validated['message']);
             $validated['name'] = sanitizeStringMyWay($validated['name']);
-            $validated['email'] = Str::stripTags($validated['email']);
-            $validated['mobile'] = Str::stripTags($validated['mobile']);
+            $validated['email'] = strip_tags($validated['email']);
+            $validated['mobile'] = strip_tags($validated['mobile']);
 
             $email = $validated['email'];
             $mobile = $validated['mobile'];
