@@ -428,3 +428,13 @@ function isProduction(){
 function renderRecaptchaInitJs(){
     return '<script src="https://www.google.com/recaptcha/api.js?hl=&render=' . env('RECAPTCHAV3_SITEKEY') . '" async defer></script>';
 }
+
+/**
+ * Sanitize String my way
+ *
+ * @param string $input
+ * @return string
+ */
+function sanitizeStringMyWay($input){
+    return preg_replace('/[^a-zA-Z\s.]/', '', $input);
+}

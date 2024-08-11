@@ -117,6 +117,7 @@
                                     @endforeach
                                     <option value="complaint">Complaint</option>
                                     <option value="feedback">Feedback</option>
+                                    <option value="AMC Contract">AMC Contract</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>

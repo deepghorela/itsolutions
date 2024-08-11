@@ -8,6 +8,7 @@ use App\Models\RequestQuote;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RequestQuoteMail;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 
 class RequestQuoteController extends Controller
@@ -24,8 +25,16 @@ class RequestQuoteController extends Controller
             // Validate the request data
             $validated = $request->validated();
 
-            $email = $request->input('email');
-            $mobile = $request->input('mobile');
+            // Remove HTML tags from the address & message
+            $validated['address'] = strip_tags($validated['address']);
+            $validated['message'] = strip_tags($validated['message']);
+            $validated['name'] = sanitizeStringMyWay($validated['name']);
+            $validated['email'] = Str::stripTags($validated['email']);
+            $validated['mobile'] = Str::stripTags($validated['mobile']);
+
+            $email = $validated['email'];
+            $mobile = $validated['mobile'];
+            unset($validated['g-recaptcha-response']);
 
             // Check if the email or mobile has reached the daily limit
             $today = now()->startOfDay();
