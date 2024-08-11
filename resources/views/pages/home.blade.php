@@ -89,7 +89,7 @@
                 <form class="form formHandler requestAQuoteForm" method="POST" action="{{ route('request-quote.store') }}">
                     @csrf
                     {{-- {!! RecaptchaV3::field('requestquote') !!} --}}
-                    <input type="hidden" id="g-recaptcha-response" class="hidden">
+                    <input type="hidden" id="g-recaptcha-response" value="" class="hidden">
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
