@@ -112,5 +112,22 @@ $("document").ready(function(){
                 }
             });
         });
-    });    
+    }); 
+    
+    
+    setTimeout(function(){
+        var head = document.getElementsByTagName('head')[0];
+        var captchaKey = document.getElementById("recaptchaKey").value;
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.onload = function() {
+            grecaptcha.ready(function() {
+                grecaptcha.execute(captchaKey, {action: 'requestquote'}).then(function(token) {
+                    document.getElementById("g-recaptcha-response").value = token;
+                });
+            });
+        }
+        script.src = "https://www.google.com/recaptcha/api.js?render="+captchaKey;
+        head.appendChild(script);
+     }, 4000);
 });

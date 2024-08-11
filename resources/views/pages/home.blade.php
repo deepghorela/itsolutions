@@ -85,9 +85,11 @@
             <div class="col-xs-12 col-md-6">
                 <h2 class="section-heading">Request a Quote</h2>
                 <div class="thanks"></div>
+                <input type="hidden" class="hidden" id="recaptchaKey" value="{!! env('RECAPTCHAV3_SITEKEY') !!}">
                 <form class="form formHandler requestAQuoteForm" method="POST" action="{{ route('request-quote.store') }}">
                     @csrf
-                    {!! RecaptchaV3::field('requestquote') !!}
+                    {{-- {!! RecaptchaV3::field('requestquote') !!} --}}
+                    <input type="hidden" id="g-recaptcha-response" class="hidden">
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
@@ -224,5 +226,4 @@
 <link rel="preload" href="{!! asset('assets/images/bg/2.jpg') !!}" as="image" />
 <link rel="preload" href="{!! asset('assets/images/bg/3.jpg') !!}" as="image" />
 <link rel="preload" href="{!! asset('assets/images/bg/server.jpg') !!}" as="image" />
-{!! RecaptchaV3::initJs() !!}
 @endpush

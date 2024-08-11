@@ -418,3 +418,13 @@ function minifiedAsset($path)
 function isProduction(){
     return env('APP_ENV') == 'production';
 }
+
+
+/**
+ * Render RecaptchaV3
+ *
+ * @return string
+ */
+function renderRecaptchaInitJs(){
+    return '<script src="https://www.google.com/recaptcha/api.js?hl=&render=' . env('RECAPTCHAV3_SITEKEY') . '" async defer></script>';
+}
