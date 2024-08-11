@@ -46,7 +46,7 @@
         @stack('post_js')
     </footer>
     @if(pageSpecificMediaExists($slug, 'js'))
-    <script async src="{!! pageSpecificMediaExists($slug, 'js') !!}"></script>
+    <script defer src="{!! pageSpecificMediaExists($slug, 'js') !!}"></script>
     @endif
 </body>
 </html>
