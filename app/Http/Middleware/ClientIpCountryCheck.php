@@ -17,6 +17,11 @@ class ClientIpCountryCheck
     public function handle(Request $request, Closure $next): Response
     {
         $position = GeoIP::getLocation();
+        if($request->has('debug') && $request->debug ='geoip'){
+            echo '<pre>';
+            print_r($position);
+            exit;
+        }
 
         if ($position && strtolower($position->country) != 'india') {
             // Block request
