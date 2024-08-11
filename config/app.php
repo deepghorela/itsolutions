@@ -174,5 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\HelperServiceProvider::class,
     ],
+    'aliases' => [
+        'GeoIP' => \Torann\GeoIP\Facades\GeoIP::class,
+    ]
 
 ];
