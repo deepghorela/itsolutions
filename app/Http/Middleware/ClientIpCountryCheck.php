@@ -30,6 +30,12 @@ class ClientIpCountryCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
+        /**
+         * For now we are not using this middleware as AWS WAF is enabled
+         */
+        return $next($request);
+
+
         if(env('APP_ENV') != 'production'){
             return $next($request);
         }
