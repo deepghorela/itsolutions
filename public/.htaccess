@@ -64,7 +64,6 @@ LimitRequestBody 10000
 
 <IfModule mod_headers.c>
     Header set Content-Security-Policy "default-src 'self' 'unsafe-inline' *.softech.live https:; img-src 'self' data: *.softech.live *.google-analytics.com *.gstatic.com *.googleapis.com https:; object-src 'self' *.softech.live https:; script-src 'unsafe-eval' 'self' 'unsafe-inline' *.google.com *.googleadservices.com *.google-analytics.com *.softech.live *.googleapis.com *.gstatic.com https:; style-src 'unsafe-inline' 'self' *.softech.live *.googleapis.com *.gstatic.com https:; font-src 'self' *.softech.live *.googleapis.com *.gstatic.com https:;"
-    Header always append X-Frame-Options "ALLOW-FROM https://www.google.com/"
     Header set X-Content-Type-Options "nosniff"
     Header set Cross-Origin-Embedder-Policy "unsafe-none"
     Header set Cross-Origin-Opener-Policy "same-origin"
@@ -73,6 +72,9 @@ LimitRequestBody 10000
     Header always edit Set-Cookie (.*) "$1; HTTPOnly, Secure"
     Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains"
     Header set Referrer-Policy "no-referrer-when-downgrade"
+    Header set Permissions-Policy "geolocation=(), sync-xhr=(), fullscreen=(self)"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-Xss-Protection "1; mode=block"
 </IfModule>
 
 <IfModule mod_deflate.c>
