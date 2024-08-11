@@ -283,4 +283,4 @@
     background-color: #393e75;
     border-color: #393e75;
 }
-/* .grecaptcha-badge { visibility: hidden !important; } */
+.grecaptcha-badge { visibility: hidden !important; }
