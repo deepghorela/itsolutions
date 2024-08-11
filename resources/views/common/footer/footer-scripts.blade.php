@@ -5,6 +5,6 @@
 @elseif($slug == 'blogs')
     <script src="{!! getAssetPath('assets/js/blogs.js') !!}"></script>
 @endif
-{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-188849176-1"></script> --}}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1WJSLMZCZW"></script>
 <script async src="{!! getAssetPath('assets/js/common.js') !!}"></script>
 <script type="application/ld+json">{!! $schemaJson !!}</script>
