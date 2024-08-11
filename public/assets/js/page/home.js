@@ -67,7 +67,7 @@ $("document").ready(function(){
         // Get the value of the Google reCAPTCHA response
         var recaptchaResponse = document.getElementById("g-recaptcha-response").value;
         // Append the g-recaptcha-response key and value to the form data
-        arr.push({ name: 'g-recaptcha-response', value: recaptchaResponse });
+        formData.push({ name: 'g-recaptcha-response', value: recaptchaResponse });
     }
     function showResponse(responseText, statusText, xhr, $form) {
         if (responseText.status) {
