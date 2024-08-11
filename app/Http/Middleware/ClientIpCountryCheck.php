@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Torann\GeoIP\Facades\GeoIP;
 use App\Services\IpRangeService;
+use Illuminate\Support\Facades\Log;
 
 class ClientIpCountryCheck
 {
@@ -97,6 +98,7 @@ class ClientIpCountryCheck
             */
             if ($position && ($position->country_code2) != 'IN') {
                 // Block request
+                Log::info("Blocked ".$clientIp);
                 return response('Access Denied', 403);
             }
         }
