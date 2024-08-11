@@ -214,9 +214,9 @@
 
 @push('post_js')
 <script defer src="{!! getAssetPath('assets/js/typed.min.js') !!}"></script>
-<script async src="{!! getAssetPath('assets/js/jquery.validate.min.js') !!}"></script>
-<script async src="{!! getAssetPath('assets/js/additional-methods.min.js') !!}"></script>
-<script async src="{!! getAssetPath('assets/js/jquery.form.min.js') !!}"></script>
+<script defer src="{!! getAssetPath('assets/js/jquery.validate.min.js') !!}"></script>
+<script defer src="{!! getAssetPath('assets/js/additional-methods.min.js') !!}"></script>
+<script defer src="{!! getAssetPath('assets/js/jquery.form.min.js') !!}"></script>
 @endpush
 
 @push('head_end')
