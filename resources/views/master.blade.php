@@ -24,7 +24,8 @@
     @if(pageSpecificMediaExists($slug, 'css'))
     <link rel="stylesheet" href="{!! pageSpecificMediaExists($slug, 'css') !!}">
     @endif
-    <link rel="icon" href="{!! asset('favicon.ico') !!}" type="image/x-icon">
+    {{-- <link rel="icon" href="{!! asset('favicon.ico') !!}" type="image/x-icon"> --}}
+    <link rel="icon" href="{!! asset('favicon-32x32.png') !!}" type="image/png">
     <meta property="og:image" content="@yield('meta_image', getLightLogoUrl())">
     @if(!empty(config('voyager.additional_css')))
         @foreach(config('voyager.additional_css') as $css)<link rel="stylesheet" type="text/css" href="{{ getAssetPath($css) }}">@endforeach
