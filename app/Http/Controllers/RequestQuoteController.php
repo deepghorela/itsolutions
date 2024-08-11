@@ -41,7 +41,7 @@ class RequestQuoteController extends Controller
                 ->count();
 
             if ($requestCount >= 3) {
-                // return returnJson(['status' => false, 'message' => 'Daily limit of 3 requests reached for this email or mobile number.']);
+                return returnJson(['status' => false, 'message' => 'Daily limit of 3 requests reached for this email or mobile number.']);
             }
             foreach(servicesDetails() as $service){
                 if(generateSeoFriendlySlug($service['heading']) == $validated['request_type']){

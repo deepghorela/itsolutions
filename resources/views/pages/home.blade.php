@@ -87,6 +87,7 @@
                 <div class="thanks"></div>
                 <form class="form formHandler requestAQuoteForm" method="POST" action="{{ route('request-quote.store') }}">
                     @csrf
+                    {!! RecaptchaV3::field('requestquote') !!}
                     <div class="row">
                         <div class="col-xs-12 col-md-6">
                             <div class="form-group">
@@ -223,4 +224,5 @@
 <link rel="preload" href="{!! asset('assets/images/bg/2.jpg') !!}" as="image" />
 <link rel="preload" href="{!! asset('assets/images/bg/3.jpg') !!}" as="image" />
 <link rel="preload" href="{!! asset('assets/images/bg/server.jpg') !!}" as="image" />
+{!! RecaptchaV3::initJs() !!}
 @endpush

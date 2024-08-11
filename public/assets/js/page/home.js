@@ -61,6 +61,7 @@ $("document").ready(function(){
         }
     });
     function showRequest(formData, jqForm, options) {
+        $(".error").remove();
         $('.requestAQuoteForm button').prop("disabled", "disabled");
     }
     function showResponse(responseText, statusText, xhr, $form) {
@@ -78,7 +79,21 @@ $("document").ready(function(){
         success: showResponse,
         url: target_url,
         type: 'POST',
-        dataType: 'json'
+        dataType: 'json',
+        error:function(xhr){
+            if (xhr.status === 422) {
+                // Handle validation errors
+                var errorData = xhr.responseJSON;
+                // Check if 'errors' object exists and is an object
+                if (errorData.errors && typeof errorData.errors === 'object') {
+                    // Check if 'email' property exists in 'errors'
+                    if (errorData.errors.email && Array.isArray(errorData.errors.email)) {
+                        $("input[name='email']").after('<label id="email-error" class="error" for="email" style="">' + errorData.errors.email.join(', ') + '</label>');
+                    }
+                }
+            }
+            $('.requestAQuoteForm button').prop("disabled", false);
+        }
     };
     
     $('.requestAQuoteForm').ajaxForm(options);

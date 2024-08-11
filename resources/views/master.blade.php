@@ -27,7 +27,7 @@
         @foreach(config('voyager.additional_css') as $css)<link rel="stylesheet" type="text/css" href="{{ asset($css) }}">@endforeach
     @endif
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700" rel="stylesheet">
-    @yield('head_end')
+    @stack('head_end')
 </head>
 <body class="{{ $slug }}">
     <div class="main-page-container">

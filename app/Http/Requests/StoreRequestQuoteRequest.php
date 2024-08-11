@@ -25,11 +25,12 @@ class StoreRequestQuoteRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:100',
-            'email' => 'required|email|max:100',
+            'email' => 'required|email|max:100|block_email_patterns',
             'mobile' => 'required|string|regex:/^[6789]\d{9}$/|max:10',
             'request_type' => 'required|string|max:255',
             'message' => 'required|string|max:1000',
             'address' => 'nullable|string|max:250',
+            'g-recaptcha-response' => 'required|recaptchav3:requestquote,0.5'
         ];
     }
 
@@ -43,6 +44,7 @@ class StoreRequestQuoteRequest extends FormRequest
             'email.required' => 'The email field is required.',
             'email.email' => 'The email must be a valid email address.',
             'email.max' => 'The email may not be greater than 100 characters.',
+            'email.block_email_patterns' => '',
 
             'mobile.required' => 'The mobile field is required.',
             'mobile.string' => 'The mobile number must be a string.',
@@ -59,6 +61,9 @@ class StoreRequestQuoteRequest extends FormRequest
 
             'address.string' => 'The address must be a string.',
             'address.max' => 'The address may not be greater than 250 characters.',
+
+            'g-recaptcha-response.required' => 'Please verify that you are not a robot.',
+            'g-recaptcha-response.recaptchav3' => 'Invalid request. Please refresh page and try again',
         ];
     }
 
