@@ -63,11 +63,13 @@ $("document").ready(function(){
     function showRequest(formData, jqForm, options) {
         $(".error").remove();
         $('.requestAQuoteForm button').prop("disabled", "disabled");
+        $('.requestAQuoteForm button').html("Processing...");
 
         // Get the value of the Google reCAPTCHA response
         var recaptchaResponse = document.getElementById("g-recaptcha-response").value;
         // Append the g-recaptcha-response key and value to the form data
         formData.push({ name: 'g-recaptcha-response', value: recaptchaResponse });
+        $('.requestAQuoteForm input, .requestAQuoteForm select, .requestAQuoteForm textarea').prop("disabled", true);
     }
     function showResponse(responseText, statusText, xhr, $form) {
         if (responseText.status) {
@@ -76,6 +78,8 @@ $("document").ready(function(){
         } else {
             alert("OOPS! "+responseText.message);
         }
+        $('.requestAQuoteForm button').html("Submit");
+        $('.requestAQuoteForm input, .requestAQuoteForm select, .requestAQuoteForm textarea').prop("disabled", false);
         $('.requestAQuoteForm button').prop("disabled", false);
     }
     var target_url = $(".target_url").val();
@@ -97,6 +101,8 @@ $("document").ready(function(){
                     }
                 }
             }
+            $('.requestAQuoteForm button').html("Submit");
+            $('.requestAQuoteForm input, .requestAQuoteForm select, .requestAQuoteForm textarea').prop("disabled", false);
             $('.requestAQuoteForm button').prop("disabled", false);
         }
     };
