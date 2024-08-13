@@ -2,7 +2,7 @@
     <div class="bgBlur"></div>
     <div class="container">
 		<div class="row">
-			<div class="col-md-8 col-sm-12">
+			<div class="col-md-8 col-sm-12 topBanCont">
 				<h1>One Stop Solution for<br></h1>
 				<h5 class="typeJsEffect">Laptop Repair</h5>
 				<p class="lead mb48 mb-xs-32">
@@ -151,7 +151,7 @@
                 </form>
                 <div class="clearfix"></div>
             </div>
-            <div class="col-xs-hidden col-md-6 bg-callback flip-horizontal">
+            <div class="hidden-xs col-md-6 bg-callback flip-horizontal">
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-<section>
+<section class="contact-section">
     <div class="container">
         <div class="col-xs-12 col-sm-4 address-list">
             @foreach($locations as $location)

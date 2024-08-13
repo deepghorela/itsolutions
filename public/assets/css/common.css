@@ -230,6 +230,17 @@ section{min-height: 50vh;padding:30px;}
         }
         .blog-card{width:100%;margin-bottom: 20px;;}
         .page-title-heading{margin-bottom: 10px;}
+        .site-header{
+            border-bottom: none;
+        }
+        .topHeader > .container h1{
+            margin-top: 55px;
+            margin-bottom: 0px !important;
+        }
+        .contact-section{
+            margin: 0px;
+            padding: 0px;
+        }
     }
 textarea{
     resize: none;

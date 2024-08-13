@@ -284,3 +284,32 @@
     border-color: #393e75;
 }
 .grecaptcha-badge { visibility: hidden !important; }
+
+@media only screen and (max-width: 768px) {
+    .topBanCont{
+        text-align: center;
+    }
+    .services-we-offer li{
+        width: 100%;
+        text-align: center;
+        background-color: antiquewhite;
+    }
+    .services-we-offer li .btn-service-detail{
+        display: block;
+    }
+    .collaborations .btn{
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        padding:10px 15px;
+    }
+    #testimonial-carousel .item blockquote{
+        font-size: 16px;
+    }
+    #testimonial-carousel .item blockquote p{
+        text-align: left;
+    }
+    #testimonial-carousel .carousel-indicators li{
+        margin: 0px 5px;
+    }
+}
