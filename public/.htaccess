@@ -17,7 +17,7 @@
     #Rediect some invalid URLs
     RewriteRule ^terms-and-conditions\.html$ /terms-and-conditions [R=301,L]
     RewriteRule ^privacy-policy\.html$ /privacy-policy [R=301,L]
-    #RewriteRule ^ja-eyccoxe(.*)$ / [R=301,L]
+    RewriteRule ^ja-eyccoxe(.*)$ / [R=301,L]
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
