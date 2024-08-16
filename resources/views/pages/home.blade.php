@@ -139,7 +139,7 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 form-terms-statement text-right">
-                            <p>By submitting this form, you agree to our <a href="{!! url('/terms-and-conditions') }}" target="_blank">Terms & Conditions</a> and <a href="{!! url('/privacy-policy') }}" target="_blank">Privacy Policy</a>.</p>
+                            <p>By submitting this form, you agree to our <a href="{!! url('/terms-and-conditions') !!}" target="_blank">Terms & Conditions</a> and <a href="{!! url('/privacy-policy') !!}" target="_blank">Privacy Policy</a>.</p>
                         </div>
                     </div>
                     <div class="row">
