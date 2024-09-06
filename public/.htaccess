@@ -23,9 +23,8 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Remove 'index.php' from URLs if the request is not a file or directory
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
+    # Redirect all requests with 'index.php' to clean URLs
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/index\.php [NC]
     RewriteRule ^index\.php/(.*)$ /$1 [R=301,L]
 
     # Redirect Trailing Slashes If Not A Folder...
