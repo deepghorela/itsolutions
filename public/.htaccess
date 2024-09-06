@@ -1,8 +1,7 @@
+<IfModule mod_negotiation.c>
+    Options -MultiViews -Indexes
+</IfModule>
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
-
     RewriteEngine On
 
     RewriteCond %{HTTP_HOST} ^softech\.live [NC]
@@ -42,6 +41,11 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+<FilesMatch "(^README\.md$|^LICENSE\.txt$|^composer\.json$|^composer\.lock$|^package\.json$|^phpunit\.xml$|^env$|^\.env$|^\.gitignore$)">
+    Require all denied
+</FilesMatch>
+
 
 # Disable server signature #
 ServerSignature Off

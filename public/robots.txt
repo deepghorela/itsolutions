@@ -431,5 +431,6 @@ User-agent: *
 Allow: /
 
 Disallow: /cgi-bin/
+Disallow: /ja-eyccoxe/
 
 Sitemap: https://softech.live/sitemap.xml
