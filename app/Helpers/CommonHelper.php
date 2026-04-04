@@ -109,12 +109,6 @@ function servicesDetails()
             "description" => "We offer reliable computer repair services, addressing both hardware and software issues. Our technicians are skilled in diagnosing and fixing problems such as motherboard failures, hard drive issues, software crashes, and more. We aim to restore your computer's functionality quickly and efficiently, ensuring that your system is up and running as soon as possible. Trust us to handle all your computer repair needs with expertise and care."
         ),
         array(
-            "icon" => "icons/001-antivirus.png",
-            "heading" => "Virus Removal",
-            "short_description" => "Effective virus removal services to secure and restore your computer's performance.",
-            "description" => "Our virus removal services effectively eliminate malware, spyware, and viruses from your computer, ensuring your system's security and performance are restored. We use advanced tools and techniques to identify and remove malicious software, protecting your data and personal information. Our technicians also provide advice on preventing future infections, helping you maintain a secure and efficient computing environment."
-        ),
-        array(
             "icon" => "icons/010-windows.png",
             "heading" => "Operating System install",
             "short_description" => "Install and configure operating systems for optimal performance and user experience.",
@@ -185,35 +179,35 @@ function testimonials()
             "description" => "The team provided exceptional service, resolving my laptop issues quickly and efficiently. I highly recommend their professional and friendly approach.",
             "name" => "Ananya Singh",
             "locality" => "Sec 81",
-            "city" => "Gurgaon"
+            "city" => "Gurugram"
         ),
         array(
             "title" => "Highly Reliable!",
             "description" => "I am extremely satisfied with their prompt and reliable service. They fixed my computer and set up my new software seamlessly.",
             "name" => "Rahul Sharma",
             "locality" => "Honda Chowk, Sec 35",
-            "city" => "Gurgaon"
+            "city" => "Gurugram"
         ),
         array(
             "title" => "Excellent Support!",
             "description" => "Their online support team is fantastic. They helped me troubleshoot and resolve my issues in no time. Highly appreciated!",
             "name" => "Megha Gupta",
             "locality" => "Udhyog Vihar, Phase 1",
-            "city" => "Gurgaon"
+            "city" => "Gurugram"
         ),
         array(
             "title" => "Professional and Efficient!",
             "description" => "Their service was professional and efficient. They installed my new operating system and ensured everything was working perfectly.",
             "name" => "Vikram Rao",
             "locality" => "Vatika, Sec 83",
-            "city" => "Gurgaon"
+            "city" => "Gurugram"
         ),
         array(
             "title" => "Great Experience!",
             "description" => "I had a great experience with their CCTV installation service. The team was knowledgeable and very helpful throughout the process.",
             "name" => "Priya Nair",
             "locality" => "Dundahera",
-            "city" => "Gurgaon"
+            "city" => "Gurugram"
         )
     );
     return  $testimonials;
@@ -268,36 +262,36 @@ function filterInlineStyles($html)
  */
 function getSeoTags(){
     $tags = [
-        "Laptop repair Gurgaon",
-        "Desktop repair Gurgaon",
-        "Computer rental Gurgaon",
-        "AMC services Gurgaon",
-        "Tech support Gurgaon",
-        "Laptop service center Gurgaon",
-        "Desktop service center Gurgaon",
-        "IT repair services Gurgaon",
-        "Laptop maintenance Gurgaon",
-        "Desktop maintenance Gurgaon",
-        "Reliable tech repair Gurgaon",
-        "Gurgaon laptop rental",
-        "Gurgaon desktop rental",
-        "Computer AMC Gurgaon",
-        "Tech solutions Gurgaon",
-        "Gurgaon IT services",
-        "Laptop repair near me Gurgaon",
-        "Desktop repair near me Gurgaon",
-        "Best laptop repair Gurgaon",
-        "Affordable tech repair Gurgaon",
-        "Gurgaon computer repair experts",
-        "Gurgaon tech support services",
-        "Laptop servicing Gurgaon",
-        "Desktop servicing Gurgaon",
-        "Gurgaon AMC contracts",
-        "Tech repair Gurgaon",
-        "Laptop and desktop repair Gurgaon",
-        "Gurgaon tech repair company",
-        "Trusted tech services Gurgaon",
-        "Professional IT repair Gurgaon"
+        "Laptop repair Gurugram",
+        "Desktop repair Gurugram",
+        "Computer rental Gurugram",
+        "AMC services Gurugram",
+        "Tech support Gurugram",
+        "Laptop service center Gurugram",
+        "Desktop service center Gurugram",
+        "IT repair services Gurugram",
+        "Laptop maintenance Gurugram",
+        "Desktop maintenance Gurugram",
+        "Reliable tech repair Gurugram",
+        "Gurugram laptop rental",
+        "Gurugram desktop rental",
+        "Computer AMC Gurugram",
+        "Tech solutions Gurugram",
+        "Gurugram IT services",
+        "Laptop repair near me Gurugram",
+        "Desktop repair near me Gurugram",
+        "Best laptop repair Gurugram",
+        "Affordable tech repair Gurugram",
+        "Gurugram computer repair experts",
+        "Gurugram tech support services",
+        "Laptop servicing Gurugram",
+        "Desktop servicing Gurugram",
+        "Gurugram AMC contracts",
+        "Tech repair Gurugram",
+        "Laptop and desktop repair Gurugram",
+        "Gurugram tech repair company",
+        "Trusted tech services Gurugram",
+        "Professional IT repair Gurugram"
     ];
     shuffle($tags);
     return $tags;
@@ -309,8 +303,7 @@ function getSeoCategories(){
         "Desktop Repair Services",
         "Computer Rental Services",
         "Annual Maintenance Contracts (AMC)",
-        "IT Support & Consultation",
-        "Data Recovery & Backup Solutions"
+        "IT Support & Consultation"
     ];    
 }
 

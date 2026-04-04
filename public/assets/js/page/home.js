@@ -1,7 +1,7 @@
 ;
 // Initialize Type.js with the desired options
 var options = {
-    strings: ["Laptop/Desktop Repair", "Data Recovery/Backup", "Computer and PC setup", "Virus removal", "Data Security", "IT Management Services", "Cyber Security Services", "and many more..."],
+    strings: ["Laptop/Desktop Repair", "Computer and PC setup", "Data Security", "IT Management Services", "Cyber Security Services", "and many more..."],
     typeSpeed: 25,
     backSpeed: 20,
     loop: true,

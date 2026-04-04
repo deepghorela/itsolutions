@@ -22,7 +22,7 @@
             <div class="footer-icon">
                 <img class="imgWhite lazyloaded" src="{!! getLightLogoUrl() !!}" title="{{ env('APP_NAME') }}" alt="{{ env('APP_NAME') }}">
             </div>
-            <p class="text-justify">Softech Technology delivers top-notch laptop and desktop repairs, rentals, and AMC in Gurgaon, offering hassle-free and dependable solutions.</p>
+            <p class="text-justify">Softech Technology delivers top-notch laptop and desktop repairs, rentals, and AMC in Gurugram, offering hassle-free and dependable solutions.</p>
         </div>
         <div class="col-xs-12 col-md-3">
             <h3 class="footer-widget__title">Quick Links</h3>
@@ -31,7 +31,7 @@
         <div class="col-xs-12 col-md-3 footer-contact-w3">
             <h3 class="footer-widget__title">Contact Info</h3>
             <ul class="list-unstyled">
-                <li><p>U1/47, DLF Phase 3, Sector 24, Gurgaon, Haryana-IN</p></li>
+                <li><p>U1/47, DLF Phase 3, Sector 24, Gurugram, Haryana-IN</p></li>
                 <li class="text-number"><a href="tel:{!! setting('site.primary_contact_number') !!}">{!! setting('site.primary_contact_number') !!}</a></li>
                 <li>{!! setting('site.primary_email') !!}</li>
                 @if(!empty(setting('site.gst_reg_number')))
